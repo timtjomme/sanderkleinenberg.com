@@ -2,6 +2,57 @@ import type { Metadata } from "next";
 import PlaceholderImage from "@/components/PlaceholderImage";
 import { timeline, raStats } from "@/lib/legacy";
 
+const earlyArchive = [
+  {
+    year: "1993",
+    name: "FREE FROGS",
+    title: "Bombay",
+    note: "The first release: a Belgian 12-inch on Wonka Beats.",
+    href: "https://www.discogs.com/release/83107-Free-Frogs-Bombay",
+    kind: "RELEASE",
+  },
+  {
+    year: "1994",
+    name: "EUROPE",
+    title: "Transporter",
+    note: "A Superstition release from the early trance and techno years.",
+    href: "https://www.discogs.com/release/34870-Europe-Europe-Transporter",
+    kind: "RELEASE",
+  },
+  {
+    year: "1996–97",
+    name: "MTF",
+    title: "It Moves / Running",
+    note: "A Dutch-techno alias and a formative collaboration with Stef Vrolijk.",
+    href: "https://www.discogs.com/artist/87598-MTF",
+    kind: "ALIAS",
+  },
+  {
+    year: "1998",
+    name: "MEVROUW SPOELSTRA",
+    title: "Bullets",
+    note: "A one-off detour before the progressive-house chapter came into focus.",
+    href: "https://www.discogs.com/artist/9091-Mevrouw-Spoelstra",
+    kind: "ALIAS",
+  },
+  {
+    year: "1998",
+    name: "FETZAN",
+    title: "Miks",
+    note: "Another alias from the same restless first wave of studio work.",
+    href: "https://www.discogs.com/artist/556554-Fetzan",
+    kind: "ALIAS",
+  },
+  {
+    year: "1998",
+    name: "SANDER KLEINENBERG",
+    title: "Melk",
+    note: "The debut album: fourteen tracks from an artist still finding the future.",
+    href: "https://www.discogs.com/release/208351-Sander-Kleinenberg-Melk",
+    kind: "ALBUM",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Story — Sander Kleinenberg",
   description:
@@ -46,6 +97,38 @@ export default function StoryPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="early-archive">
+        <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-20">
+          <div className="early-archive-intro">
+            <div>
+              <p className="eyebrow">1993 — 1998</p>
+              <h2 className="early-archive-title">BEFORE THE<br />SIGNAL.</h2>
+            </div>
+            <p>
+              Before <em>My Lexicon</em>, there were side paths, aliases and
+              early records. This is the opening shelf of the archive.
+            </p>
+          </div>
+          <div className="early-archive-grid">
+            {earlyArchive.map((entry) => (
+              <a
+                key={entry.name + entry.title}
+                href={entry.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="early-archive-item"
+              >
+                <div className="early-archive-meta"><span>{entry.year}</span><span>{entry.kind}</span></div>
+                <h3>{entry.name}</h3>
+                <p className="early-archive-release">{entry.title}</p>
+                <p className="early-archive-note">{entry.note}</p>
+                <span className="early-archive-link">View on Discogs ↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="relative">
