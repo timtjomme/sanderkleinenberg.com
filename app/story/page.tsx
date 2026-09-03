@@ -21,6 +21,14 @@ const earlyArchive = [
   },
   {
     year: "EARLY YEARS",
+    name: "RAILS INC.",
+    title: "Artist archive",
+    note: "A Discogs catalogue entry added to this archive.",
+    href: "https://www.discogs.com/artist/46434-Rails-Inc",
+    kind: "ALIAS",
+  },
+  {
+    year: "EARLY YEARS",
     name: "PS-5",
     title: "Artist archive",
     note: "A Discogs catalogue entry added to this archive.",
