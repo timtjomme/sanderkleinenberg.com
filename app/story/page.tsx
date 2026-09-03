@@ -122,6 +122,12 @@ const mixArchive = [
     label: "with Lee Burridge",
     href: "https://www.discogs.com/master/47415-Sander-Kleinenberg-And-Lee-Burridge-This-Is-Everybody-On-Tour",
   },
+  {
+    year: "2009",
+    title: "This Is Sander Kleinenberg 2",
+    label: "Everybody Loves Music",
+    href: "https://www.discogs.com/master/204400-Sander-Kleinenberg-This-Is-Sander-Kleinenberg-2",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -205,7 +211,7 @@ export default function StoryPage() {
       <section className="mix-archive">
         <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-20">
           <div className="mix-archive-intro">
-            <p className="eyebrow">2000 — 2005</p>
+            <p className="eyebrow">2000 — 2009</p>
             <h2>THE<br /><em>LONG</em> FORM.</h2>
             <p>
               Six mix records that turned a DJ&apos;s point of view into a
