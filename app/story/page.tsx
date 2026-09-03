@@ -90,48 +90,56 @@ const mixArchive = [
     year: "2000",
     title: "Tranceglobal Airways",
     label: "Muzik magazine mix",
+    cover: "https://i.discogs.com/lgE-dGx31tXvHHE5Bx-YBu-hUUTXgKoqaG9LuC_Sb4I/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNTU0/LTEyNTY5MjQ5ODEu/anBlZw.jpeg",
     href: "https://www.discogs.com/release/23554-Sander-Kleinenberg-Tranceglobal-Airways",
   },
   {
     year: "2001",
     title: "Nubreed 004 — Global Underground",
     label: "Global Underground",
+    cover: "https://i.discogs.com/FskeCc_Ci3D_SBzLk_YKf37bQXaQNaBgCrUALgKH4bk/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODM2/LTEyMjQwOTY3MTcu/anBlZw.jpeg",
     href: "https://www.discogs.com/master/47322-Sander-Kleinenberg-Nubreed-Global-Underground",
   },
   {
     year: "2002",
     title: "Essential Mix",
     label: "Warner Music",
+    cover: "https://i.discogs.com/5VwxreKyxxnx6oz2C9My0AEeUFkFWAvRagej1ZwXpVU/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg3MDc4/LTEyMzkyNjUwNTIu/anBlZw.jpeg",
     href: "https://www.discogs.com/master/319891-Sander-Kleinenberg-Essential-Mix",
   },
   {
     year: "2003",
     title: "Everybody",
     label: "Renaissance",
+    cover: "https://i.discogs.com/I7iRz-KiS98ehCOV4NHBooywiHzt3Xh8SGevXb5OX0Y/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMDg2/NC0xNTg5NDA1NzQ5/LTEzNDMuanBlZw.jpeg",
     href: "https://www.discogs.com/master/47338-Sander-Kleinenberg-Everybody",
   },
   {
     year: "2004",
     title: "This Is Everybody Too",
     label: "Everybody Loves Music",
+    cover: "https://i.discogs.com/JnPuqDZVhDI6kz59XAs567ZNvVroA7i66kv0_lAuRBo/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1NTg1/MC0xNTg5NDY2OTky/LTE3MDQuanBlZw.jpeg",
     href: "https://www.discogs.com/master/47376-Sander-Kleinenberg-This-Is-Everybody-Too",
   },
   {
     year: "2005",
     title: "Everybody On Tour",
     label: "with Lee Burridge",
+    cover: "https://i.discogs.com/JCFb8g4sUeJT3W9pppYwpnXvENIddaLe6iiImQ2WUgE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3ODMx/NDctMTI0MzAyNjE4/Mi5qcGVn.jpeg",
     href: "https://www.discogs.com/master/47415-Sander-Kleinenberg-And-Lee-Burridge-This-Is-Everybody-On-Tour",
   },
   {
     year: "2007",
     title: "This Is Sander Kleinenberg",
     label: "Everybody Loves Music",
+    cover: "https://i.discogs.com/bWF_YhnFMRl8-BPf6DpPjsMl8AmDo7rIMCOVxpFNMzY/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMjk1/NjYtMTI1MjI3NDU0/Mi5qcGVn.jpeg",
     href: "https://www.discogs.com/master/32567-Sander-Kleinenberg-This-Is-Sander-Kleinenberg",
   },
   {
     year: "2009",
     title: "This Is Sander Kleinenberg 2",
     label: "Everybody Loves Music",
+    cover: "https://i.discogs.com/TUig6d5nfsfv0jX8_9AbU6qtBj2sZ1LzhTk90v7mzD4/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIwNTA4/MDAtMTI2MDk0NDgw/My5qcGVn.jpeg",
     href: "https://www.discogs.com/master/204400-Sander-Kleinenberg-This-Is-Sander-Kleinenberg-2",
   },
 ];
@@ -234,6 +242,13 @@ export default function StoryPage() {
                 rel="noopener noreferrer"
                 className="mix-archive-item"
               >
+                <img
+                  src={entry.cover}
+                  alt={`${entry.title} cover`}
+                  className="mix-archive-cover"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
                 <span>{entry.year}</span>
                 <h3>{entry.title}</h3>
                 <p>{entry.label}</p>
