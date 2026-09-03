@@ -123,6 +123,12 @@ const mixArchive = [
     href: "https://www.discogs.com/master/47415-Sander-Kleinenberg-And-Lee-Burridge-This-Is-Everybody-On-Tour",
   },
   {
+    year: "2007",
+    title: "This Is Sander Kleinenberg",
+    label: "Everybody Loves Music",
+    href: "https://www.discogs.com/master/32567-Sander-Kleinenberg-This-Is-Sander-Kleinenberg",
+  },
+  {
     year: "2009",
     title: "This Is Sander Kleinenberg 2",
     label: "Everybody Loves Music",
