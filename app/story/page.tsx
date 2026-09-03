@@ -20,6 +20,14 @@ const earlyArchive = [
     kind: "RELEASE",
   },
   {
+    year: "EARLY YEARS",
+    name: "PS-5",
+    title: "Artist archive",
+    note: "A Discogs catalogue entry added to this archive.",
+    href: "https://www.discogs.com/artist/921266-PS-5",
+    kind: "ALIAS",
+  },
+  {
     year: "1996–97",
     name: "MTF",
     title: "It Moves / Running",
