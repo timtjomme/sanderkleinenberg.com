@@ -85,6 +85,45 @@ const earlyArchive = [
   },
 ];
 
+const mixArchive = [
+  {
+    year: "2000",
+    title: "Tranceglobal Airways",
+    label: "Muzik magazine mix",
+    href: "https://www.discogs.com/release/23554-Sander-Kleinenberg-Tranceglobal-Airways",
+  },
+  {
+    year: "2001",
+    title: "Nubreed 004 — Global Underground",
+    label: "Global Underground",
+    href: "https://www.discogs.com/master/47322-Sander-Kleinenberg-Nubreed-Global-Underground",
+  },
+  {
+    year: "2002",
+    title: "Essential Mix",
+    label: "Warner Music",
+    href: "https://www.discogs.com/master/319891-Sander-Kleinenberg-Essential-Mix",
+  },
+  {
+    year: "2003",
+    title: "Everybody",
+    label: "Renaissance",
+    href: "https://www.discogs.com/master/47338-Sander-Kleinenberg-Everybody",
+  },
+  {
+    year: "2004",
+    title: "This Is Everybody Too",
+    label: "Everybody Loves Music",
+    href: "https://www.discogs.com/master/47376-Sander-Kleinenberg-This-Is-Everybody-Too",
+  },
+  {
+    year: "2005",
+    title: "Everybody On Tour",
+    label: "with Lee Burridge",
+    href: "https://www.discogs.com/master/47415-Sander-Kleinenberg-And-Lee-Burridge-This-Is-Everybody-On-Tour",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Story — Sander Kleinenberg",
   description:
@@ -157,6 +196,36 @@ export default function StoryPage() {
                 <p className="early-archive-release">{entry.title}</p>
                 <p className="early-archive-note">{entry.note}</p>
                 <span className="early-archive-link">View on Discogs ↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mix-archive">
+        <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-20">
+          <div className="mix-archive-intro">
+            <p className="eyebrow">2000 — 2005</p>
+            <h2>THE<br /><em>LONG</em> FORM.</h2>
+            <p>
+              Six mix records that turned a DJ&apos;s point of view into a
+              format of its own: patient, widescreen, and built to be played
+              from beginning to end.
+            </p>
+          </div>
+          <div className="mix-archive-grid">
+            {mixArchive.map((entry) => (
+              <a
+                key={entry.title}
+                href={entry.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mix-archive-item"
+              >
+                <span>{entry.year}</span>
+                <h3>{entry.title}</h3>
+                <p>{entry.label}</p>
+                <small>View on Discogs ↗</small>
               </a>
             ))}
           </div>
