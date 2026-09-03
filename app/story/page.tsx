@@ -29,6 +29,14 @@ const earlyArchive = [
   },
   {
     year: "EARLY YEARS",
+    name: "SAKAN",
+    title: "Artist archive",
+    note: "A Discogs catalogue entry added to this archive.",
+    href: "https://www.discogs.com/artist/62921-Sakan",
+    kind: "ALIAS",
+  },
+  {
+    year: "EARLY YEARS",
     name: "PS-5",
     title: "Artist archive",
     note: "A Discogs catalogue entry added to this archive.",
