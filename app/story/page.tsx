@@ -37,6 +37,14 @@ const earlyArchive = [
   },
   {
     year: "EARLY YEARS",
+    name: "S.N.S.",
+    title: "Artist archive",
+    note: "A Discogs catalogue entry added to this archive.",
+    href: "https://www.discogs.com/artist/42287-S-N-S",
+    kind: "ALIAS",
+  },
+  {
+    year: "EARLY YEARS",
     name: "PS-5",
     title: "Artist archive",
     note: "A Discogs catalogue entry added to this archive.",
