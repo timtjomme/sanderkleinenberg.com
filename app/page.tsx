@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import FiveKMark from "@/components/FiveKMark";
+import ArchiveBlast from "@/components/ArchiveBlast";
 import { upcomingShows, pastShows } from "@/lib/shows";
 
 export default function Home() {
@@ -83,6 +84,8 @@ export default function Home() {
           <Link href="/story/" className="text-link mt-9">Enter the full archive →</Link>
         </div>
       </section>
+
+      <ArchiveBlast />
 
       <section className="recent-section">
         <div className="site-shell">
