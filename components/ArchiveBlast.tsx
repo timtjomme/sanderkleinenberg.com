@@ -70,20 +70,29 @@ export default function ArchiveBlast() {
         <article className={`blast-card blast-${memory.type.toLowerCase().replace(" ", "-")}`}>
           <div className="blast-visual">
             {memory.image ? (
-              <Image
-                src={memory.image}
-                alt=""
-                fill
-                sizes="(max-width: 700px) 100vw, 50vw"
-                className="blast-image"
-              />
+              memory.type === "VIDEO" ? (
+                <iframe
+                  className="blast-video-frame"
+                  src="https://www.youtube-nocookie.com/embed/CW4aURZ6hWA?rel=0"
+                  title="Sander Kleinenberg — My Lexicon (official video)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <Image
+                  src={memory.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 700px) 100vw, 50vw"
+                  className="blast-image"
+                />
+              )
             ) : (
               <div className="set-visual" aria-hidden="true">
                 <FiveKMark />
                 <div className="set-wave"><i /><i /><i /><i /><i /><i /><i /></div>
               </div>
             )}
-            {memory.type === "VIDEO" && <span className="play-mark" aria-hidden="true">▶</span>}
             {memory.credit && <span className="image-credit">{memory.credit}</span>}
           </div>
           <div className="blast-copy">
