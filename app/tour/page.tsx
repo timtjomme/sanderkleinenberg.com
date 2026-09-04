@@ -81,15 +81,15 @@ export default function TourPage() {
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-20">
           <div className="max-w-2xl">
             <p className="glow-text font-mono text-[.78rem] uppercase tracking-[.2em] text-orange">
-              2013 — 2026
+              2000 — 2026
             </p>
             <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">
               Past events, on the record.
             </h2>
             <p className="mt-4 text-ink-dim">
-              {raPastEvents.length} published listings, beginning with the earliest
-              page currently held in the Resident Advisor archive. Start at the
-              beginning and move forward through the rooms, cities and festivals.
+              {raPastEvents.length} published listings, beginning in 2000 on the
+              earliest page currently held in the Resident Advisor archive. Start
+              at the beginning and move forward through the rooms, cities and festivals.
             </p>
           </div>
 
