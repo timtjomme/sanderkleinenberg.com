@@ -162,6 +162,13 @@ const mixArchive = [
     cover: "https://i.discogs.com/TUig6d5nfsfv0jX8_9AbU6qtBj2sZ1LzhTk90v7mzD4/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIwNTA4/MDAtMTI2MDk0NDgw/My5qcGVn.jpeg",
     href: "https://www.discogs.com/master/204400-Sander-Kleinenberg-This-Is-Sander-Kleinenberg-2",
   },
+  {
+    year: "2012",
+    title: "DJ Sessions Ibiza, Vol. 8",
+    label: "Amnesia Ibiza DJ Sessions",
+    cover: "https://i.discogs.com/3NxuVz6fNcJhZGIzfh_vKSyy8cmP0HbR65RjrKrEuYI/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM4MzMz/NzA2LTE3ODg1MTcy/OTgtMTU0MS5qcGVn.jpeg",
+    href: "https://www.discogs.com/release/38333706-Sander-Kleinenberg-DJ-Sessions-Ibiza-Vol-8",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -274,7 +281,7 @@ export default function StoryPage() {
             <p className="eyebrow">2000 — 2009</p>
             <h2>THE<br /><em>LONG</em> FORM.</h2>
             <p>
-              Eight mix records that turned a DJ&apos;s point of view into a
+              Nine mix records that turned a DJ&apos;s point of view into a
               format of its own: patient, widescreen, and built to be played
               from beginning to end.
             </p>
