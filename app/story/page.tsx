@@ -224,11 +224,8 @@ export default function StoryPage() {
           </div>
           <div className="early-archive-grid">
             {earlyArchive.map((entry) => (
-              <a
+              <article
                 key={entry.name + entry.title}
-                href={entry.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={`early-archive-item${entry.cover ? " has-cover" : ""}`}
               >
                 <div className="early-archive-meta"><span>{entry.year}</span><span>{entry.kind}</span></div>
@@ -257,8 +254,15 @@ export default function StoryPage() {
                     ))}
                   </p>
                 )}
-                <span className="early-archive-link">View on Discogs ↗</span>
-              </a>
+                <a
+                  href={entry.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="early-archive-link"
+                >
+                  Discogs source ↗
+                </a>
+              </article>
             ))}
           </div>
         </div>
@@ -270,18 +274,15 @@ export default function StoryPage() {
             <p className="eyebrow">2000 — 2009</p>
             <h2>THE<br /><em>LONG</em> FORM.</h2>
             <p>
-              Six mix records that turned a DJ&apos;s point of view into a
+              Eight mix records that turned a DJ&apos;s point of view into a
               format of its own: patient, widescreen, and built to be played
               from beginning to end.
             </p>
           </div>
           <div className="mix-archive-grid">
             {mixArchive.map((entry) => (
-              <a
+              <article
                 key={entry.title}
-                href={entry.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="mix-archive-item"
               >
                 <img
@@ -294,8 +295,10 @@ export default function StoryPage() {
                 <span>{entry.year}</span>
                 <h3>{entry.title}</h3>
                 <p>{entry.label}</p>
-                <small>View on Discogs ↗</small>
-              </a>
+                <a href={entry.href} target="_blank" rel="noopener noreferrer">
+                  <small>Discogs source ↗</small>
+                </a>
+              </article>
             ))}
           </div>
         </div>
