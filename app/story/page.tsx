@@ -10,6 +10,7 @@ const earlyArchive = [
     note: "The first release: a Belgian 12-inch on the legendary Wonka Beats label.",
     href: "https://www.discogs.com/release/83107-Free-Frogs-Bombay",
     kind: "RELEASE",
+    cover: "https://i.discogs.com/JTABGZeOgQmD7yW7H-DbY8oXpqLPLN2bPFC-5MGks9U/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgzMTA3/LTEzNzk1MjI4MDIt/MjA2Mi5qcGVn.jpeg",
     collaborators: [
       { name: "Raymond Heg", href: "https://www.discogs.com/artist/193361-Raymond-Heg" },
       { name: "Rick van Breugel", href: "https://www.discogs.com/artist/100022-Rick-van-Breugel" },
@@ -23,6 +24,7 @@ const earlyArchive = [
     note: "A release on the legendary Superstition imprint from the early trance and techno years.",
     href: "https://www.discogs.com/release/34870-Europe-Europe-Transporter",
     kind: "RELEASE",
+    cover: "https://i.discogs.com/OTY-uQTTyHSk3fBKQvN9BiJr0HckGLpzFGq95ZQHkL4/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM0ODcw/LTEzNzk1MjA5ODIt/NzcyNC5qcGVn.jpeg",
     collaborators: [
       { name: "Etienne Overdijk", href: "https://www.discogs.com/artist/78438-Etienne-Overdijk" },
       { name: "Kelvin Smits", href: "https://www.discogs.com/artist/64986-Kelvin-Smits" },
@@ -227,9 +229,18 @@ export default function StoryPage() {
                 href={entry.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="early-archive-item"
+                className={`early-archive-item${entry.cover ? " has-cover" : ""}`}
               >
                 <div className="early-archive-meta"><span>{entry.year}</span><span>{entry.kind}</span></div>
+                {entry.cover && (
+                  <img
+                    src={entry.cover}
+                    alt={`${entry.name} — ${entry.title} cover`}
+                    className="early-archive-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                )}
                 <h3>{entry.name}</h3>
                 <p className="early-archive-release">{entry.title}</p>
                 <p className="early-archive-note">{entry.note}</p>
