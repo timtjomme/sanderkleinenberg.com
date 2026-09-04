@@ -7,7 +7,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="relative">
+    <footer className="site-footer relative">
       <div className="divider-glow absolute inset-x-0 top-0" />
       <div className="mx-auto flex max-w-5xl flex-col gap-4 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p className="font-mono text-[.72rem] uppercase tracking-[.1em] text-ink-dim">

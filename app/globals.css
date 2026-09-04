@@ -138,6 +138,10 @@ body::after {
 
 /* Site identity — current precision meets the hand-built 5K archive era. */
 .site-shell { width: min(100% - 2.5rem, 78rem); margin-inline: auto; }
+.site-main > section:not(.hero, .signal-section, .early-archive, .mix-archive, .blast-section) { position:relative; border-bottom:1px solid var(--line); }
+.site-main > section:not(.hero, .signal-section, .early-archive, .mix-archive, .blast-section):nth-child(odd) { background:#f5f7fc; }
+.site-main > section:not(.hero, .signal-section, .early-archive, .mix-archive, .blast-section):nth-child(even) { background:#e7edfc; }
+.site-footer { background:#e7edfc; }
 .site-header { position: relative; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(245,247,252,.86); backdrop-filter: blur(15px); }
 .site-wordmark { display: grid; width: min-content; font-family: var(--font-unbounded); font-size: .9rem; font-weight: 800; line-height: .92; letter-spacing: -.07em; }
 .site-wordmark span:last-child { color: var(--ink-dim); }
