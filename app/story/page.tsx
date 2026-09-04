@@ -7,17 +7,31 @@ const earlyArchive = [
     year: "1993",
     name: "FREE FROGS",
     title: "Bombay",
-    note: "The first release: a Belgian 12-inch on Wonka Beats.",
+    note: "The first release: a Belgian 12-inch on the legendary Wonka Beats label.",
     href: "https://www.discogs.com/release/83107-Free-Frogs-Bombay",
     kind: "RELEASE",
+    collaborators: [
+      { name: "Raymond Heg", href: "https://www.discogs.com/artist/193361-Raymond-Heg" },
+      { name: "Rick van Breugel", href: "https://www.discogs.com/artist/100022-Rick-van-Breugel" },
+      { name: "Sander Kleinenberg", href: "https://www.discogs.com/artist/5800-Sander-Kleinenberg" },
+    ],
   },
   {
     year: "1994",
     name: "EUROPE",
     title: "Transporter",
-    note: "A Superstition release from the early trance and techno years.",
+    note: "A release on the legendary Superstition imprint from the early trance and techno years.",
     href: "https://www.discogs.com/release/34870-Europe-Europe-Transporter",
     kind: "RELEASE",
+    collaborators: [
+      { name: "Etienne Overdijk", href: "https://www.discogs.com/artist/78438-Etienne-Overdijk" },
+      { name: "Kelvin Smits", href: "https://www.discogs.com/artist/64986-Kelvin-Smits" },
+      { name: "Olaf Darmstadt", href: "https://www.discogs.com/artist/35699-Olaf-Darmstadt" },
+      { name: "Peter Gijselaers", href: "https://www.discogs.com/artist/492280-Peter-Gijselaers" },
+      { name: "Raymond Heg", href: "https://www.discogs.com/artist/193361-Raymond-Heg" },
+      { name: "Sander Kleinenberg", href: "https://www.discogs.com/artist/5800-Sander-Kleinenberg" },
+      { name: "Sven Van Hees", href: "https://www.discogs.com/artist/2659-Sven-Van-Hees" },
+    ],
   },
   {
     year: "EARLY YEARS",
@@ -215,6 +229,19 @@ export default function StoryPage() {
                 <h3>{entry.name}</h3>
                 <p className="early-archive-release">{entry.title}</p>
                 <p className="early-archive-note">{entry.note}</p>
+                {entry.collaborators && (
+                  <p className="early-archive-collaborators">
+                    <span>Together with </span>
+                    {entry.collaborators.map((person, index) => (
+                      <span key={person.href}>
+                        {index > 0 && ", "}
+                        <a href={person.href} target="_blank" rel="noopener noreferrer">
+                          {person.name}
+                        </a>
+                      </span>
+                    ))}
+                  </p>
+                )}
                 <span className="early-archive-link">View on Discogs ↗</span>
               </a>
             ))}
