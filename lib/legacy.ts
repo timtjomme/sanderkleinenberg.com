@@ -23,10 +23,6 @@ export const timeline = [
     year: "2010",
     text: "Own label THIS IS Recordings and debut album 5K.",
   },
-  {
-    year: "ever since",
-    text: "DVJ pioneer — live sets built around self-made visuals, together with VJ Mark Pistoire.",
-  },
 ] as const;
 
 // Source: Resident Advisor artist profile (ra.co/dj/sanderk), checked 31 August 2026.
