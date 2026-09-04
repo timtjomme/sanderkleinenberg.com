@@ -51,11 +51,15 @@ const earlyArchive = [
   },
   {
     year: "EARLY YEARS",
-    name: "S.N.S.",
-    title: "Artist archive",
-    note: "A Discogs catalogue entry added to this archive.",
+    name: "S'N'S",
+    title: "YDW",
+    note: "A hit that found its way to a release on Strictly Rhythm.",
     href: "https://www.discogs.com/artist/42287-S-N-S",
     kind: "ALIAS",
+    collaborators: [
+      { name: "Sander Kleinenberg", href: "https://www.discogs.com/artist/5800-Sander-Kleinenberg" },
+      { name: "Stef Vrolijk", href: "https://www.discogs.com/artist/13761-Stef-Vrolijk" },
+    ],
   },
   {
     year: "EARLY YEARS",
