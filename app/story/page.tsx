@@ -237,6 +237,9 @@ export default function StoryPage() {
               >
                 <div className="early-archive-meta"><span>{entry.year}</span><span>{entry.kind}</span></div>
                 {entry.cover && (
+                  /* Remote Discogs sleeve art: a plain <img> keeps i.discogs.com
+                     off the next/image remote-pattern allowlist. */
+                  /* eslint-disable-next-line @next/next/no-img-element */
                   <img
                     src={entry.cover}
                     alt={`${entry.name} — ${entry.title} cover`}
@@ -292,6 +295,9 @@ export default function StoryPage() {
                 key={entry.title}
                 className="mix-archive-item"
               >
+                {/* Remote Discogs sleeve art: a plain <img> keeps i.discogs.com
+                    off the next/image remote-pattern allowlist. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={entry.cover}
                   alt={`${entry.title} cover`}
@@ -361,7 +367,7 @@ export default function StoryPage() {
             </div>
             <div>
               <p className="font-mono text-[.72rem] uppercase tracking-[.06em] text-ink-dim">
-                Clubs he's played most
+                Clubs he&apos;s played most
               </p>
               <ul className="mt-2 text-ink">
                 {raStats.clubs.slice(0, 3).map((c) => (

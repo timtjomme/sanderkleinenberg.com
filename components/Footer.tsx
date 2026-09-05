@@ -2,7 +2,6 @@ const SOCIALS = [
   { href: "https://soundcloud.com/sanderkleinenberg", label: "SoundCloud" },
   { href: "https://x.com/kleinenberg", label: "X" },
   { href: "https://www.facebook.com/sanderkleinenberg", label: "Facebook" },
-  { href: "https://ra.co/dj/sanderk", label: "Resident Advisor" },
 ];
 
 export default function Footer() {

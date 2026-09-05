@@ -60,7 +60,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
           <h2 className="font-display text-xl font-extrabold">Newsletter</h2>
           <p className="mt-4 text-ink-dim">
-            There's no active newsletter wired up to this site yet — that
+            There&apos;s no active newsletter wired up to this site yet — that
             needs a provider (e.g. Mailchimp) before a signup form here
             would actually do anything. Until then, follow SoundCloud or X
             for new releases and shows.

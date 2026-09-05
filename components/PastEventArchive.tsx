@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import { raPastEvents, type PastEvent } from "@/lib/ra-past-events";
+import { partyflockPastEvents } from "@/lib/partyflock-past-events";
+import { djguidePastEvents } from "@/lib/djguide-past-events";
+import { countryFlag } from "@/lib/country-flag";
 
 const eventDate = new Intl.DateTimeFormat("en-GB", {
   weekday: "short",
@@ -11,8 +14,12 @@ const eventDate = new Intl.DateTimeFormat("en-GB", {
   timeZone: "UTC",
 });
 
+const allPastEvents = [...raPastEvents, ...partyflockPastEvents, ...djguidePastEvents].sort((a, b) =>
+  a.date.localeCompare(b.date),
+);
+
 const archiveByYear = Object.entries(
-  raPastEvents.reduce<Record<string, PastEvent[]>>((years, event) => {
+  allPastEvents.reduce<Record<string, PastEvent[]>>((years, event) => {
     const year = event.date.slice(0, 4);
     (years[year] ??= []).push(event);
     return years;
@@ -21,6 +28,7 @@ const archiveByYear = Object.entries(
 
 export default function PastEventArchive() {
   const [selectedFlyer, setSelectedFlyer] = useState<PastEvent | null>(null);
+  const [memoryStatus, setMemoryStatus] = useState<"idle" | "saved">("idle");
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -29,6 +37,17 @@ export default function PastEventArchive() {
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
+
+  const saveMemoryDraft = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const draft = Object.fromEntries(
+      [...formData.entries()].filter(([, value]) => typeof value === "string"),
+    );
+    window.localStorage.setItem("sander-kleinenberg-memory-draft", JSON.stringify({ ...draft, savedAt: new Date().toISOString() }));
+    setMemoryStatus("saved");
+  };
 
   return (
     <section className="relative bg-surface-2">
@@ -42,9 +61,7 @@ export default function PastEventArchive() {
             Past events, on the record.
           </h2>
           <p className="mt-4 text-ink-dim">
-            {raPastEvents.length} published listings, beginning in 2000 on the
-            earliest page currently held in the Resident Advisor archive. Cards
-            marked <span className="font-mono text-[.78em] uppercase tracking-[.12em] text-orange">View flyer</span> open the original artwork here.
+            {allPastEvents.length} archived dates. Cards marked <span className="font-mono text-[.78em] uppercase tracking-[.12em] text-orange">View artwork</span> open the original flyer or event image here.
           </p>
         </div>
 
@@ -82,18 +99,54 @@ export default function PastEventArchive() {
             </details>
           ))}
         </div>
-        <p className="mt-5 text-sm text-ink-dim">
-          Source: Resident Advisor&apos;s{" "}
-          <a
-            href="https://ra.co/dj/sanderk/past-events"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-glow"
-          >
-            past-events archive
-          </a>
-          . Listings and flyer artwork follow the original event records.
-        </p>
+
+        <section className="memory-drop" aria-labelledby="memory-drop-title">
+          <div>
+            <p className="memory-drop-kicker">WERE YOU THERE?</p>
+            <h2 id="memory-drop-title">Add your memory to the archive.</h2>
+            <p>Write it down here, then keep it safe until the community intake opens. This draft stays only on your device.</p>
+          </div>
+          <form onSubmit={saveMemoryDraft} className="memory-drop-form">
+            <div className="memory-drop-fields">
+              <label>
+                Your name
+                <input name="name" autoComplete="name" required />
+              </label>
+              <label>
+                Email
+                <input name="email" type="email" autoComplete="email" required />
+              </label>
+              <label>
+                Year / date
+                <input name="date" placeholder="e.g. 2003" />
+              </label>
+              <label>
+                City or event
+                <input name="event" placeholder="e.g. Amsterdam / Everybody" />
+              </label>
+            </div>
+            <label>
+              The memory
+              <textarea name="memory" rows={5} minLength={10} required placeholder="What happened? What did it feel like?" />
+            </label>
+            <div className="memory-drop-fields">
+              <label>
+                Photo, video, ticket or set link (optional)
+                <input name="link" type="url" placeholder="https://" />
+              </label>
+            </div>
+            <label className="memory-drop-consent">
+              <input name="permission" type="checkbox" required />
+              I own this material or have permission to share it when the public archive opens.
+            </label>
+            <div className="memory-drop-actions">
+              <button type="submit" className="memory-drop-submit">
+                Save draft locally
+              </button>
+              {memoryStatus === "saved" && <p className="memory-drop-message" role="status">Saved on this device only. Nothing has been sent.</p>}
+            </div>
+          </form>
+        </section>
       </div>
 
       {selectedFlyer?.flyerFront && (
@@ -115,6 +168,10 @@ export default function PastEventArchive() {
             >
               ×
             </button>
+            {/* Scanned flyers of wildly varying aspect ratio, sized by the
+                lightbox CSS; the static export runs no image optimizer, so
+                next/image would only add intrinsic-size constraints. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={selectedFlyer.flyerFront}
               alt={`Original flyer for ${selectedFlyer.title}`}
@@ -123,7 +180,7 @@ export default function PastEventArchive() {
             <div className="flyer-popout-caption">
               <p>{eventDate.format(new Date(`${selectedFlyer.date}T12:00:00Z`))}</p>
               <h3>{selectedFlyer.title}</h3>
-              <span>{selectedFlyer.venue} · {selectedFlyer.city}</span>
+              <span>{selectedFlyer.venue} · {countryFlag(selectedFlyer.country)} {selectedFlyer.city}</span>
             </div>
           </div>
         </div>
@@ -133,6 +190,8 @@ export default function PastEventArchive() {
 }
 
 function EventCard({ event }: { event: PastEvent }) {
+  const flag = countryFlag(event.country);
+
   return (
     <>
       <p className="font-mono text-[.72rem] uppercase tracking-[.12em] text-orange">
@@ -140,10 +199,10 @@ function EventCard({ event }: { event: PastEvent }) {
       </p>
       <p className="mt-2 font-display text-base font-bold leading-snug">{event.title}</p>
       <p className="mt-3 text-sm text-ink-dim">
-        {event.venue} · {event.city}
+        {event.venue} · {flag && <span className="event-country-flag" title={event.country}>{flag}</span>} {event.city}
         {event.country && event.city !== event.country ? `, ${event.country}` : ""}
       </p>
-      {event.flyerFront && <span className="event-flyer-label">View flyer ↗</span>}
+      {event.flyerFront && <span className="event-flyer-label">View artwork ↗</span>}
     </>
   );
 }

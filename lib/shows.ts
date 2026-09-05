@@ -4,7 +4,10 @@ export type Show = {
   title: string;
   venue: string;
   city: string;
+  country: string;
   status: "upcoming" | "past";
+  ticketUrl?: string;
+  image?: string;
 };
 
 // Source: Resident Advisor (ra.co/dj/sanderk), checked 31 August 2026.
@@ -17,22 +20,29 @@ export const shows: Show[] = [
     title: "Winter of Love festival 2026",
     venue: "Thuishaven",
     city: "Amsterdam",
+    country: "Netherlands",
     status: "upcoming",
+    ticketUrl: "https://shop.tickets.cm.com/68593e2e-f3ea-b7b7-43bd-263f253d4b37",
+    image: "/images/winter-of-love.webp",
   },
   {
     date: "2026-09-26",
     dateLabel: "Sat 26 Sep 2026",
     title: "Paal Closing",
     venue: "Paal69",
-    city: "Amsterdam",
+    city: "Zandvoort",
+    country: "Netherlands",
     status: "upcoming",
+    ticketUrl: "https://app.tiqqo.com/e/paal69-closing-weekend-saturday",
+    image: "/images/paal69-closing.jpg",
   },
   {
     date: "2026-06-20",
     dateLabel: "Sat 20 Jun 2026",
     title: "Tide",
     venue: "Paal69",
-    city: "Amsterdam",
+    city: "Zandvoort",
+    country: "Netherlands",
     status: "past",
   },
   {
@@ -41,6 +51,7 @@ export const shows: Show[] = [
     title: "10 yrs of Pand 13 presents Samuel Deep & Sander Kleinenberg",
     venue: "Houtbaar Haarlem",
     city: "Amsterdam",
+    country: "Netherlands",
     status: "past",
   },
   {
@@ -49,6 +60,7 @@ export const shows: Show[] = [
     title: "IOOI presents: Sander Kleinenberg",
     venue: "Iocerouno",
     city: "Monterrey",
+    country: "Mexico",
     status: "past",
   },
   {
@@ -57,6 +69,7 @@ export const shows: Show[] = [
     title: "Wooferland, Summer of Love & The Beginning pres. Het Wintercircus — 10 year anniversary at Thuishaven",
     venue: "Thuishaven",
     city: "Amsterdam",
+    country: "Netherlands",
     status: "past",
   },
   {
@@ -65,6 +78,7 @@ export const shows: Show[] = [
     title: "The Rave Game 2.0",
     venue: "Thuishaven",
     city: "Amsterdam",
+    country: "Netherlands",
     status: "past",
   },
   {
@@ -73,6 +87,7 @@ export const shows: Show[] = [
     title: "Summer of Love pres. Autumn Love Maassilo",
     venue: "Maassilo",
     city: "Rotterdam",
+    country: "Netherlands",
     status: "past",
   },
   {
@@ -81,6 +96,7 @@ export const shows: Show[] = [
     title: "Berlin presents Sander Kleinenberg",
     venue: "Carat's Cafe & Bar",
     city: "Brighton",
+    country: "United Kingdom",
     status: "past",
   },
   {
@@ -89,6 +105,7 @@ export const shows: Show[] = [
     title: "Sander Kleinenberg",
     venue: "SILO",
     city: "New York City",
+    country: "United States of America",
     status: "past",
   },
   {
@@ -97,6 +114,7 @@ export const shows: Show[] = [
     title: "Sander Kleinenberg with Sherif + Aledro",
     venue: "Magic Stick",
     city: "Detroit",
+    country: "United States of America",
     status: "past",
   },
   {
@@ -105,6 +123,7 @@ export const shows: Show[] = [
     title: "Temple presents Sander Kleinenberg",
     venue: "TEMPLE",
     city: "Lisbon",
+    country: "Portugal",
     status: "past",
   },
   {
@@ -113,6 +132,7 @@ export const shows: Show[] = [
     title: "Sander Kleinenberg + Fer Romano + Josta",
     venue: "Fünk",
     city: "Mexico City",
+    country: "Mexico",
     status: "past",
   },
   {
@@ -121,6 +141,7 @@ export const shows: Show[] = [
     title: "SXM Festival 2025",
     venue: "Happy Bay Beach",
     city: "Saint Martin",
+    country: "Saint Martin",
     status: "past",
   },
 ];
